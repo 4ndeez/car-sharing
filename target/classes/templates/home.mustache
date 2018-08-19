@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <input type="submit" value="Sign Out"/>
+</form>
+<div>Welcome</div>
+<div>
+    <form method="post">
+        <input type="text" name="username" placeholder="Input user" />
+        <input type="text" name="password" placeholder="password" />
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">Add</button>
+    </form>
+</div>
+<div>List of users:</div>
+{{#users}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{username}}</span>
+        <i>{{password}}</i>
+    </div>
+{{/users}}
+</body>
+</html>
